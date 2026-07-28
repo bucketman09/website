@@ -1,0 +1,110 @@
+console.log("main.js loaded")
+
+const canvas = document.getElementById("canvas")
+const ctx = canvas.getContext("2d")
+
+let x = 0;
+let y = 0;
+let w = 50;
+let h = 50;
+let vxl = 0;
+let vxr = 0
+let vyu = 0;
+let vyd = 0;
+
+class _Object{
+    constructor(x,y,w,h){
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+    }
+}
+
+let object = new _Object(100,100,25,25)
+
+function collision(){
+    return !(
+        ((y + h) < (object.y)) ||
+        (y > (object.y + object.h)) ||
+        ((x + w) < object.x) ||
+        (x > (object.x + object.w))
+    );
+}
+
+function update(){
+    ctx.clearRect(0,0,canvas.width,canvas.height)
+
+    x += vxl;
+    x += vxr;
+    y += vyu;
+    y += vyd;
+    ctx.fillRect(x,y,50,50)
+
+    ctx.fillRect(object.x,object.y,object.w,object.h)
+
+    console.log(collision())
+    requestAnimationFrame(update)
+}  
+
+
+
+
+update()
+
+console.log("inputHandler.js loaded")
+
+addEventListener("keydown", function(e){
+    if (e.code == 'KeyA') vxl = -5;
+    if (e.code == 'KeyD') vxr = 5;
+    if (e.code == 'KeyW') vyu = -5
+    if (e.code == 'KeyS') vyd = 5
+})
+
+addEventListener("keyup", function(e){
+    if (e.code == 'KeyA') vxl = 0;
+    if (e.code == 'KeyD') vxr = 0
+    if (e.code == 'KeyW') vyu = 0
+    if (e.code == 'KeyS') vyd = 0
+})
+
+const audio = document.getElementById("myAudio");
+            window.addEventListener('mousemove', function(e){
+                audio.play();
+            })
+
+    <img src="assets/cd-player-stereo.gif" class="cd-player" id="cdPlayer">
+
+    button.addEventListener("click", () => {
+    audio.paused ? audio.play() : audio.pause();
+});
+
+
+
+<body>
+    <h1>This is a heading</h1>
+    <button id="onoffbtn">On/Off</button>
+    <audio id="audioPlayer" loop>
+        <source src="assets/music/01 Packt Like Sardines in a Crushd Tin Box.flac" type="audio/flac">
+    </audio>
+    <img src="assets/cd-player-stereo.gif" class="cd-player" id="cdPlayer" onclick="startStop()">
+    <!--input type="image" src="assets/cd-player-stereo.gif" class= "cd-player" id= "cdPlayer">
+    <canvas id="canvas" wdith="device-widthpx" height="2000px" ></canvas-->
+</body>
+<script src="scripts/main.js" ></script>
+
+
+
+.h1{
+  padding-left: 50px;
+}
+
+
+
+.cd-player{
+    position: absolute;
+    left: 200px;
+    right: 200px;
+}
+
+

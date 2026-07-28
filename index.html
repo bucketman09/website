@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWebsite</title>
+    <style> 
+        body { 
+            margin-top: 0;
+            margin-bottom:0;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            overflow: hidden;
+            
+            background-color: rgb(71, 51, 25);
+            background-image: url("assets/librarybackground.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            }
+        h1{
+            padding: 10px 0px 5px 10px;
+        }
+        p{
+            padding: 15px;
+        }
+        #mainbox{
+            background-color: rgb(1, 74, 1);
+            margin: 100px min(200px,8% )200px;
+            border: 5px solid black;
+        }
+    </style>
+    
+</head>
+
+<body> 
+    <audio id="musicPlayer"></audio>
+    <script>
+    const music = ["assets/music/01 Packt Like Sardines in a Crushd Tin Box.flac", 
+                    "assets/music/01 Springsville.flac", 
+                    "assets/music/05 Zomby Woof.flac"];
+   
+    let random = Math.floor(Math.random() * music.length);
+
+    musicPlayer.src = music[random];
+    musicPlayer.load();
+
+    function stopStart(){
+            if(musicPlayer.paused){
+                musicPlayer.play()
+            }else{
+                musicPlayer.pause()
+            }
+        }
+    
+    </script>
+    <div id="mainbox">
+        <h1>a header</h1>
+        <p>Here is some text oh yea oh yea website cool</p>
+        <p>Another set of text to look at</p>
+        <center>
+        <img src="assets/cd-player-stereo.gif" alt="music" onclick="stopStart()">
+        
+            </center>
+    </div>
+</body>
+</html>
