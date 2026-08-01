@@ -5,72 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>MyLibrary</title>
-
-    <link rel="preload" as="image" href="assets/bookshelf_empty_open_transparent.webp">
-
-    <style> 
-        body { 
-            overflow: hidden;
-            
-            background-color: rgb(1, 67, 8);
-            background-image: url("assets/librarybackground.jpg");
+    
+    <style>
+        body{
+            background-image: url("assets/desk_background.webp");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            background-color: rgba(98, 98, 98); 
+            overflow: hidden;
+
 
             display: flex;
-            justify-content: center;
+            justify-content: center; /* horizontal center */
             align-items: center;
-            }
-        
 
-        #mainbox{
-            width: 600px;
-            height: 700px;
-            background-image: url(assets/bookshelf_empty_closed_transparent.webp);
-            /*border: 5px solid black;*/
-            background-size: cover;
-            background-repeat: no-repeat;
+            min-height: 100vh;
+            margin: 0px;
+
+            
+        }
+
+        #navigation{
+            width: 400px;
+            height: 600px;
+            background-image: url("assets/notepad_transparent.webp");
             background-position: center;
-            padding-top: 40px;
-            padding-left: 50px;
-            padding-right:50px;
-            padding-bottom: 100px;
+            background-size: contain; 
+            background-repeat: no-repeat;
+            font-family: myFont;
 
-            display: grid;
-            column-gap: 15px;
-            row-gap: 10px;
-            grid-template-columns: repeat(2,1fr);
-            grid-template-rows: repeat(5,1fr);
-            justify-self: baseline;
-            align-items: baseline;
-            
-            
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
         }
 
-        .cell {
-            width: 100%;
-            height: 100%;
+        .text{
+            margin-left: 15px;
+            line-height: 34px;
         }
+
+        .subText{
+            margin-left: 30px;
+            line-height: 34px;
+        }
+        
+        #note{ 
+            z-index: 10;
+            width: 200px;
+            height: 200px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            /*border: 5px solid black;*/
+            top: 5%;
+            left: 75%;
+            transform: rotate(5deg);
+            position: absolute;
+            background-image: url(/assets/stickynote.webp);
+
+        }
+
 
         @font-face {
             font-family: myFont; /* set name */
-            src: url(assets/minecraftia/Minecraftia-Regular.ttf); /* url of the font */
-        }
-        
-        .text{
-            color: black;
+            src: url(assets/cheese_milky/Cheese\ Milky.otf); /* url of the font */
         }
 
     </style>
-    
-</head>
+<head>
 
-<body> 
-    <!--video id="book-video" autoplay src="assets/book-animation-transparent.webm"></video-->
-        
-    
+
+<body>
     <audio id="musicPlayer"></audio>
     <script>
     const music = ["assets/music/Geese-3D Country-Crusades.mp3",
@@ -91,91 +99,47 @@
         }
     
     </script>
+    <div id="note">
+        <img src="/assets/cd-player-stereo.gif" alt="music">
+        <p onclick="stopStart()">Play</p>
+    </div>
+    <div id="navigation">
+        <h1 class="text"; style="margin-top: 50px; margin-bottom: 0px;">Index</h1>
+
+        <a class="text"; href="projects/projects.html"/*onclick="moveElement()"*/ id="projects">Projects</a>
+
+        <a class="text"; href="catalog/catalog.html"> Catalog</a>
+                
+        <a class="subText"; href="">Books</a>
+            
+        <a class="subText"; href="">Film & TV</a>
+                
+        <a class="subText"; href="">Games</a>
+            
+        <a class="text"; href="photo-album/photo-album.html">Photos</a>
+        
+    </div>
+
 
     
-    <audio id="openSFX" src="assets/sfx/door_open.wav"></audio>
-    <audio id="closeSFX" src="assets/sfx/door_close.wav"></audio>
-    <script>
-        function playSFX(x){
-            if(x==0){
-                openSFX.play()
-            }else{
-                closeSFX.play()
+    <!--script>
+        var id = null;
+        function moveElement() {
+            var elem = document.getElementById("navigation");
+            var pos = 0;
+            clearInterval(id);
+            id = setInterval(frame, 20);
+        function frame() {
+            console.log(elem.style.top);
+                if (pos == 350) {
+                clearInterval(id);
+                } else {
+                pos++;
+                elem.style.top = pos + 'px';
+                elem.style.left = pos + 'px';
+                }
             }
         }
-    </script>
-
-    <div id="mainbox">
-        <div class="cell" data-cell="0"></div>
-        <div class="cell" data-cell="1"></div>
-        <div class="cell" data-cell="2"></div>
-        <div class="cell" data-cell="3" ></div>
-        <div class="cell" data-cell="4"></div>
-        <div class="cell" data-cell="5"></div> 
-        <div class="cell" data-cell="6">
-            <img src="assets/cd-player-stereo.gif" alt="cd_player" onclick="stopStart()">
-        </div>
-        <div class="cell" data-cell="7"></div>
-        <div class="cell" data-cell="8"></div>
-        <div class="cell" data-cell="9"></div>
-
-        <!--img src="assets/minecraft_book.webp" alt="Book" style="width:100px; height:100px;" onclick="openProjects()">
-            <script>
-            function openProjects(){
-                window.location.href = "projects/projects.html" 
-            }
-            </script-->
-
-        
-        <!--div id="widget-calendar">
-            <table>
-                <thead>
-                <tr class="month"><td colspan="7">July 2026</td></tr>
-                <tr class="days"><td>Su</td><td>Mo</td><td>Tu</td><td>We</td><td>Th</td><td>Fr</td><td>Sa</td></tr>
-                </thead>
-                <tbody><tr><td class="blank"> </td><td class="blank"> </td><td class="blank"> </td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td></tr><tr><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td></tr><tr><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td></tr><tr><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td><span class="today">31</span></td><td class="blank"></td></tr></tbody>
-            </table>
-        </div>
-
-
-
-
-        <center> <img src="assets/cd-player-stereo.gif" alt="music" onclick="stopStart()"> </center>
-        <img src="assets/old-computer.png" alt="old computer" style="padding-left:75%; width: 10%"-->
-    </div>
-    <script>
-        document.getElementById("mainbox").addEventListener("click", (e) => {  
-            let c = e.target.closest(".cell").dataset.cell;
-            
-            console.log(c);
-                if(c==0){
-                    console.log("click!")
-                    window.location.href = "projects/projects.html";
-                }else if (c==1){
-                    window.location.href = "photo-album/photo-album.html"
-                }
-            }); 
-            
-        document.getElementById("mainbox").addEventListener("mouseover", (e) => {
-            //console.log("mouse!")
-            const cell = e.target.closest(".cell");
-            
-            if (!cell) return;
-
-            let c = cell.dataset.cell;
-            
-
-            if(c == 8 || c == 9 ){
-                console.log("open");
-                document.getElementById("mainbox").style.backgroundImage = 'url("assets/bookshelf_empty_open_transparent.webp")'
-                playSFX(0)
-
-            }else{
-                document.getElementById("mainbox").style.backgroundImage = 'url("assets/bookshelf_empty_closed_transparent.webp")'
-                playSFX(1)
-            }
-            //cell.style.backgroundColor = "red";
-        });
-    </script>
+    </script-->
+    
 </body>
-</html>

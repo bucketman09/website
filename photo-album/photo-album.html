@@ -3,56 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Album</title>
+    <title>Projects</title>
 
     <style>
-           body { 
-            
-            overflow: hidden;
-            
-            background-color: rgb(1, 67, 8);
-            background-image: url("../assets/librarybackground.jpg");
+        body{
+            background-image: url("../assets/desk_background.webp");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            
+            background-color: rgba(98, 98, 98); 
+            overflow: hidden;
+
             display: flex;
-            justify-content: center;
+            justify-content: center; /* horizontal center */
             align-items: center;
 
-            margin-top: 200px;
-            }
+            min-height: 100vh;
+            margin: 0px;
 
+            
+        }
 
-       
-        .container{
-            width:600px;
-            height: 390px;
-
-            /*background-image: url("../assets/minecraft_book&quill_open.webp");
-            background-size: contain;
+        #navigation{
+            width: 400px;
+            height: 600px;
+            background-image: url("../assets/notepad_transparent.webp");
             background-position: center;
+            background-size: contain; 
             background-repeat: no-repeat;
-            */
+            font-family: myFont;
+
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(3,1fr);
+
+        }
+
+        #nav-right{
+            width: 400px;
+            height: 600px;
+            background-image: url("../assets/notepad_transparent.webp");
+            background-position: center;
+            background-size: contain; 
+            background-repeat: no-repeat;
+            font-family: myFont;
+
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(3,1fr);
+        }
+
+        .text{
+            margin-left: 15px;
+            line-height: 34px;
+        }
+
+        .subText{
+            margin-left: 30px;
+            line-height: 34px;
+        }
         
+
+        #fullScreenDiv{
+            display: none;
+            position: absolute;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-size: contain;
+            background-repeat: no-repeat no-repeat;
+            background-position: center center;
         }
 
-         @font-face {
+        @font-face {
             font-family: myFont; /* set name */
-            src: url(../assets/minecraftia/Minecraftia-Regular.ttf); /* url of the font */
+            src: url(../assets/cheese_milky/Cheese\ Milky.otf); /* url of the font */
         }
 
-    
 
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <img src="../assets/minecraft_book&quill_open.webp" alt="book" style="size: 500px;">
-        <div class="image">
-            <!--img src="https://drive.google.com/thumbnail?id=1rs8mk7lCGrfFxXHW72qo5G6qfBQlfosR" alt="cow" style="width: 100px; position: relative; left: 10px;"-->
-        </div>
+    <div id="fullScreenDiv">
+
     </div>
+    <div id="navigation">
+        <h1 class="text">Photos</h1>
+        <div>
+            <img id="img1" src="https://drive.google.com/thumbnail?id=1a6kVvB_EybQ1VakgiVP21LkzWY0dNETW" alt="Cow" onclick="fullScreen(this.src)">
+            <p>Date and Time</p>
+        </div>
+        <div>
+            <img src="https://drive.google.com/thumbnail?id=1Sy6D0tUVDK72861PKbuKfesNoU9Gj879" alt="Cow">
+            <p>Date and Time</p>
+        </div>
+        <div>
+            <img src="https://drive.google.com/thumbnail?id=1O4UxIF31q6qYKXPOvOgxIYbpJOGs36q4" alt="Cow">
+            <p>Date and Time</p>
+        </div>
+
+        <script>
+            var fs = document.getElementById("fullScreenDiv")
+            function fullScreen(src){
+                console.log(src);
+                fs.style.backgroundImage = 'url(' + src + ')'
+                fs.style.display = "block";
+            }
+        </script>
+        
+        
+    </div>
+    <div id="nav-right">
+        <h2>projects right</h2>
+        <div>
+            <img id="img1" src="https://drive.google.com/thumbnail?id=1a6kVvB_EybQ1VakgiVP21LkzWY0dNETW" alt="Cow" onclick="fullScreen(this.src)">
+            <p>Date and Time</p>
+        </div>
+        <div>
+            <img src="https://drive.google.com/thumbnail?id=1Sy6D0tUVDK72861PKbuKfesNoU9Gj879" alt="Cow">
+            <p>Date and Time</p>
+        </div>
+        <div>
+            <img src="https://drive.google.com/thumbnail?id=1O4UxIF31q6qYKXPOvOgxIYbpJOGs36q4" alt="Cow">
+            <p>Date and Time</p>
+        </div>
+
+    </div>
+    
 </body>
