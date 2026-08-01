@@ -3,46 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyWebsite</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>MyLibrary</title>
+
+    <link rel="preload" as="image" href="assets/bookshelf_empty_open_transparent.webp">
+
     <style> 
         body { 
-            margin-top: 0;
-            margin-bottom:0;
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: 0;
-            padding-right: 0;
             overflow: hidden;
             
-            background-color: rgb(71, 51, 25);
+            background-color: rgb(1, 67, 8);
             background-image: url("assets/librarybackground.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
             }
-        h1{
-            padding: 10px 0px 5px 10px;
-        }
-        p{
-            padding: 15px;
-        }
+        
+
         #mainbox{
-            background-color: rgb(1, 74, 1);
-            margin: 100px min(200px,8% )200px;
-            border: 5px solid black;
+            width: 600px;
+            height: 700px;
+            background-image: url(assets/bookshelf_empty_closed_transparent.webp);
+            /*border: 5px solid black;*/
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding-top: 40px;
+            padding-left: 50px;
+            padding-right:50px;
+            padding-bottom: 100px;
+
+            display: grid;
+            column-gap: 15px;
+            row-gap: 10px;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(5,1fr);
+            justify-self: baseline;
+            align-items: baseline;
+            
+            
         }
+
+        .cell {
+            width: 100%;
+            height: 100%;
+        }
+
+        @font-face {
+            font-family: myFont; /* set name */
+            src: url(assets/minecraftia/Minecraftia-Regular.ttf); /* url of the font */
+        }
+        
+        .text{
+            color: black;
+        }
+
     </style>
     
 </head>
 
 <body> 
+    <!--video id="book-video" autoplay src="assets/book-animation-transparent.webm"></video-->
+        
+    
     <audio id="musicPlayer"></audio>
     <script>
     const music = ["assets/music/Geese-3D Country-Crusades.mp3",
-                    "assets/music/Miles Davis-Miles Ahead-Springsville.mp3",
-                    "assets/music/Radiohead-Amnesiac-Packt Like Sardines in a Crushd Tin Box.mp3"
-    ]
+                    "assets/music/Miles Davis-Miles Ahead-Springsville.mp3"
+                    ]
    
     let random = Math.floor(Math.random() * music.length);
 
@@ -58,14 +91,91 @@
         }
     
     </script>
+
+    
+    <audio id="openSFX" src="assets/sfx/door_open.wav"></audio>
+    <audio id="closeSFX" src="assets/sfx/door_close.wav"></audio>
+    <script>
+        function playSFX(x){
+            if(x==0){
+                openSFX.play()
+            }else{
+                closeSFX.play()
+            }
+        }
+    </script>
+
     <div id="mainbox">
-        <h1>a header</h1>
-        <p>Here is some text oh yea oh yea website cool</p>
-        <p>Another set of text to look at</p>
-        <center>
-        <img src="assets/cd-player-stereo.gif" alt="music" onclick="stopStart()">
+        <div class="cell" data-cell="0"></div>
+        <div class="cell" data-cell="1"></div>
+        <div class="cell" data-cell="2"></div>
+        <div class="cell" data-cell="3" ></div>
+        <div class="cell" data-cell="4"></div>
+        <div class="cell" data-cell="5"></div> 
+        <div class="cell" data-cell="6">
+            <img src="assets/cd-player-stereo.gif" alt="cd_player" onclick="stopStart()">
+        </div>
+        <div class="cell" data-cell="7"></div>
+        <div class="cell" data-cell="8"></div>
+        <div class="cell" data-cell="9"></div>
+
+        <!--img src="assets/minecraft_book.webp" alt="Book" style="width:100px; height:100px;" onclick="openProjects()">
+            <script>
+            function openProjects(){
+                window.location.href = "projects/projects.html" 
+            }
+            </script-->
+
         
-            </center>
+        <!--div id="widget-calendar">
+            <table>
+                <thead>
+                <tr class="month"><td colspan="7">July 2026</td></tr>
+                <tr class="days"><td>Su</td><td>Mo</td><td>Tu</td><td>We</td><td>Th</td><td>Fr</td><td>Sa</td></tr>
+                </thead>
+                <tbody><tr><td class="blank"> </td><td class="blank"> </td><td class="blank"> </td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td></tr><tr><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td></tr><tr><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td></tr><tr><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td><span class="today">31</span></td><td class="blank"></td></tr></tbody>
+            </table>
+        </div>
+
+
+
+
+        <center> <img src="assets/cd-player-stereo.gif" alt="music" onclick="stopStart()"> </center>
+        <img src="assets/old-computer.png" alt="old computer" style="padding-left:75%; width: 10%"-->
     </div>
+    <script>
+        document.getElementById("mainbox").addEventListener("click", (e) => {  
+            let c = e.target.closest(".cell").dataset.cell;
+            
+            console.log(c);
+                if(c==0){
+                    console.log("click!")
+                    window.location.href = "projects/projects.html";
+                }else if (c==1){
+                    window.location.href = "photo-album/photo-album.html"
+                }
+            }); 
+            
+        document.getElementById("mainbox").addEventListener("mouseover", (e) => {
+            //console.log("mouse!")
+            const cell = e.target.closest(".cell");
+            
+            if (!cell) return;
+
+            let c = cell.dataset.cell;
+            
+
+            if(c == 8 || c == 9 ){
+                console.log("open");
+                document.getElementById("mainbox").style.backgroundImage = 'url("assets/bookshelf_empty_open_transparent.webp")'
+                playSFX(0)
+
+            }else{
+                document.getElementById("mainbox").style.backgroundImage = 'url("assets/bookshelf_empty_closed_transparent.webp")'
+                playSFX(1)
+            }
+            //cell.style.backgroundColor = "red";
+        });
+    </script>
 </body>
 </html>
