@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>MyLibrary</title>
+    <link rel="stylesheet" href="css/font.css">
     
     <style>
+        *{
+            font-family: myFont;
+            box-sizing: border-box;
+        }
+
         body{
             background-image: url("assets/desk_background.webp");
             background-repeat: no-repeat;
@@ -30,11 +36,17 @@
         #navigation{
             width: 400px;
             height: 600px;
+
+            position: relative;
+            left:0px;
+            transition: left 0.5s ease;
+
             background-image: url("assets/notepad_transparent.webp");
             background-position: center;
             background-size: contain; 
             background-repeat: no-repeat;
-            font-family: myFont;
+
+            padding-left: 20px;
 
             display: flex;
             flex-direction: column;
@@ -42,15 +54,21 @@
 
         }
 
-        .text{
-            margin-left: 15px;
+        /*
+        #navigation.transition{
+            
+        }
+        */
+
+        a{
             line-height: 34px;
         }
 
         .subText{
             margin-left: 30px;
-            line-height: 34px;
         }
+
+        
         
         #note{ 
             z-index: 10;
@@ -66,12 +84,8 @@
             position: absolute;
             background-image: url(/assets/stickynote.webp);
 
-        }
+            padding: 20px;
 
-
-        @font-face {
-            font-family: myFont; /* set name */
-            src: url(assets/cheese_milky/Cheese\ Milky.otf); /* url of the font */
         }
 
     </style>
@@ -104,11 +118,11 @@
         <p onclick="stopStart()">Play</p>
     </div>
     <div id="navigation">
-        <h1 class="text"; style="margin-top: 50px; margin-bottom: 0px;">Index</h1>
+        <h1 style="margin-top: 50px; margin-bottom: 0px;">Index</h1>
 
-        <a class="text"; href="projects/projects.html"/*onclick="moveElement()"*/ id="projects">Projects</a>
+        <a href="projects/projects.html"/*onclick="moveElement()"*/ id="projects">Projects</a>
 
-        <a class="text"; href="catalog/catalog.html"> Catalog</a>
+        <a href="catalog/catalog.html"> Catalog</a>
                 
         <a class="subText"; href="">Books</a>
             
@@ -116,7 +130,7 @@
                 
         <a class="subText"; href="">Games</a>
             
-        <a class="text"; href="photo-album/photo-album.html">Photos</a>
+        <a href="photo-album/photo-album.html">Photos</a>
         
     </div>
 
@@ -141,5 +155,19 @@
             }
         }
     </script-->
+
+    <script>
+        var id = null;
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function(e) {
+                e.preventDefault()
+                console.log("Link clicked:", this.href);
+                var elem = document.getElementById("navigation");
+                elem.style.left = "110%";
+                
+                setTimeout(go=> {window.location.href = link;}, 500)
+            });
+        });
+    </script>
     
 </body>

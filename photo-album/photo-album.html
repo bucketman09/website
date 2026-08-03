@@ -4,133 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
-
+    <link rel="stylesheet" href="../css/font.css">
     <style>
+        *{
+            font-family: myFont;
+        }
         body{
             background-image: url("../assets/desk_background.webp");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: rgba(98, 98, 98); 
             overflow: hidden;
 
             display: flex;
-            justify-content: center; /* horizontal center */
             align-items: center;
+            justify-content: center;
 
             min-height: 100vh;
-            margin: 0px;
 
+        }
+
+        #pageLeft{
+            background-image: url("../assets/notepad_transparent.webp");
+            width: 30vw;
+            height: 75vh;
             
+            background-position: center;
+            background-size: cover; 
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+
+            padding: 15px;
+            
+            box-sizing: border-box;
         }
 
-        #navigation{
-            width: 400px;
-            height: 600px;
+        #pageRight{
             background-image: url("../assets/notepad_transparent.webp");
+            width: 30vw;
+            height: 75vh;
+            
             background-position: center;
-            background-size: contain; 
+            background-size: cover; 
             background-repeat: no-repeat;
             font-family: myFont;
+            display: flex;
+            flex-direction: column;
 
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            grid-template-rows: repeat(3,1fr);
+            padding: 15px;
+            
+            box-sizing: border-box;
+        }
+
+        .header{
+            width: 100%;
+            height: 15%;
+
+            box-sizing: border-box;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
 
         }
 
-        #nav-right{
-            width: 400px;
-            height: 600px;
-            background-image: url("../assets/notepad_transparent.webp");
-            background-position: center;
-            background-size: contain; 
-            background-repeat: no-repeat;
-            font-family: myFont;
-
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            grid-template-rows: repeat(3,1fr);
+        .slot{
+            display: flex;
+            box-sizing: border-box;
+            justify-content: space-around;
+            align-items: center;
         }
 
-        .text{
-            margin-left: 15px;
-            line-height: 34px;
+        .img{
+            margin:2%;
+            width: 22%;
         }
 
-        .subText{
-            margin-left: 30px;
-            line-height: 34px;
-        }
-        
+        h{
+            width: 100%;
+            height: 15%;
 
-        #fullScreenDiv{
-            display: none;
-            position: absolute;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-size: contain;
-            background-repeat: no-repeat no-repeat;
-            background-position: center center;
+            box-sizing: border-box; 
         }
 
-        @font-face {
-            font-family: myFont; /* set name */
-            src: url(../assets/cheese_milky/Cheese\ Milky.otf); /* url of the font */
+        .pageturnbtn{
+            width:50px;
+            height:50px;
+            background-color: blue;
         }
+
 
 
     </style>
-</head>
+<head>
+
 <body>
-    <div id="fullScreenDiv">
-
+    <div id="pageLeft">
+        <h2>Page Left</h2>
+        <div class="content">
+            <div class="slot">
+                <img src="https://pub-2cf87827ff3e43c98f50da1cc2d1b036.r2.dev/Ireland/IMG_7584.JPG" alt="Cow" class="img">
+                <p>Time and Date</p>
+            </div>
+            <div class="slot">
+                <img src="https://pub-2cf87827ff3e43c98f50da1cc2d1b036.r2.dev/Ireland/IMG_7595.JPG" alt="Cow" class="img">
+                <p>Time and Date</p>
+            </div>
+            <div class="slot">
+                <img src="https://pub-2cf87827ff3e43c98f50da1cc2d1b036.r2.dev/Ireland/IMG_7735.JPG" alt="Cow" class="img">
+                <p>Time and Date</p>
+            </div>
+        </div>
+        <div class="pageturnbtn">PT</div>
     </div>
-    <div id="navigation">
-        <h1 class="text">Photos</h1>
-        <div>
-            <img id="img1" src="https://drive.google.com/thumbnail?id=1a6kVvB_EybQ1VakgiVP21LkzWY0dNETW" alt="Cow" onclick="fullScreen(this.src)">
-            <p>Date and Time</p>
-        </div>
-        <div>
-            <img src="https://drive.google.com/thumbnail?id=1Sy6D0tUVDK72861PKbuKfesNoU9Gj879" alt="Cow">
-            <p>Date and Time</p>
-        </div>
-        <div>
-            <img src="https://drive.google.com/thumbnail?id=1O4UxIF31q6qYKXPOvOgxIYbpJOGs36q4" alt="Cow">
-            <p>Date and Time</p>
-        </div>
 
-        <script>
-            var fs = document.getElementById("fullScreenDiv")
-            function fullScreen(src){
-                console.log(src);
-                fs.style.backgroundImage = 'url(' + src + ')'
-                fs.style.display = "block";
-            }
-        </script>
-        
-        
-    </div>
-    <div id="nav-right">
-        <h2>projects right</h2>
-        <div>
-            <img id="img1" src="https://drive.google.com/thumbnail?id=1a6kVvB_EybQ1VakgiVP21LkzWY0dNETW" alt="Cow" onclick="fullScreen(this.src)">
-            <p>Date and Time</p>
+    <div id="pageRight">
+        <h2>Page Right</h2>
+        <div class="content">
+            <div class="slot">
+                <img src="https://drive.google.com/thumbnail?id=1Sy6D0tUVDK72861PKbuKfesNoU9Gj879" alt="Cow" class="img">
+                <p>Time and Date</p>
+            </div>
+            <div class="slot">
+                <img src="https://drive.google.com/thumbnail?id=1O4UxIF31q6qYKXPOvOgxIYbpJOGs36q4" alt="Not Cow" class="img">
+                <p>Time and Date</p>
+            </div>
+            <div class="slot">
+                <img src="https://drive.google.com/thumbnail?id=1Sy6D0tUVDK72861PKbuKfesNoU9Gj879" alt="Cow" class="img">
+                <p>Time and Date</p>
+            </div>
         </div>
-        <div>
-            <img src="https://drive.google.com/thumbnail?id=1Sy6D0tUVDK72861PKbuKfesNoU9Gj879" alt="Cow">
-            <p>Date and Time</p>
-        </div>
-        <div>
-            <img src="https://drive.google.com/thumbnail?id=1O4UxIF31q6qYKXPOvOgxIYbpJOGs36q4" alt="Cow">
-            <p>Date and Time</p>
-        </div>
-
     </div>
     
 </body>

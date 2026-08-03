@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+
+    <style>
+        body{
+            background-image: url("../assets/desk_background.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: rgba(98, 98, 98); 
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center; /* horizontal center */
+            align-items: center;
+
+            min-height: 100vh;
+            margin: 0px;
+
+            
+        }
+
+        #page-left{
+            width: 400px;
+            height: 600px;
+            background-image: url("../assets/notepad_transparent.webp");
+            background-position: center;
+            background-size: contain; 
+            background-repeat: no-repeat;
+            font-family: myFont;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+        }
+
+        .content{
+            display:flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        #page-right{
+            width: 400px;
+            height: 600px;
+            background-image: url("../assets/notepad_transparent.webp");
+            background-position: center;
+            background-size: contain; 
+            background-repeat: no-repeat;
+            font-family: myFont;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text{
+            margin-left: 15px;
+            line-height: 34px;
+        }
+
+        .subText{
+            margin-left: 30px;
+            line-height: 34px;
+        }
+        
+
+        #fullScreenDiv{
+            display: none;
+            position: absolute;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-size: contain;
+            background-repeat: no-repeat no-repeat;
+            background-position: center center;
+        }
+
+        @font-face {
+            font-family: myFont; /* set name */
+            src: url(../assets/cheese_milky/Cheese\ Milky.otf); /* url of the font */
+        }
+
+        .slot{
+            display:flex;
+            align-items: center;
+            height: 33%;    
+            justify-content: space-around;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="fullScreenDiv">
+
+    </div>
+    <div id="page-left">
+        <div><h1>Heading</h1></div>
+        <div class="slot">
+            <img id="img1" src="https://drive.google.com/thumbnail?id=1a6kVvB_EybQ1VakgiVP21LkzWY0dNETW" alt="Cow" onclick="fullScreen(this.src)">
+            <p>Date and Time</p>
+        </div>
+        <div class="slot">
+            <img src="https://drive.google.com/thumbnail?id=1Sy6D0tUVDK72861PKbuKfesNoU9Gj879" alt="Cow">
+            <p>Date and Time</p>
+        </div>
+        <div class="slot">
+            <img src="https://drive.google.com/thumbnail?id=1O4UxIF31q6qYKXPOvOgxIYbpJOGs36q4" alt="Cow">
+            <p>Date and Time</p>
+        </div>
+
+        <script>
+            var fs = document.getElementById("fullScreenDiv")
+            function fullScreen(src){
+                console.log(src);
+                fs.style.backgroundImage = 'url(' + src + ')'
+                fs.style.display = "block";
+            }
+        </script>
+        
+        
+    </div>
+    <div id="page-right">
+        <h2>projects right</h2>
+        <div>
+            <img id="img1" src="https://drive.google.com/thumbnail?id=1a6kVvB_EybQ1VakgiVP21LkzWY0dNETW" alt="Cow" onclick="fullScreen(this.src)">
+            <p>Date and Time</p>
+        </div>
+        <div>
+            <img src="https://drive.google.com/thumbnail?id=1Sy6D0tUVDK72861PKbuKfesNoU9Gj879" alt="Cow">
+            <p>Date and Time</p>
+        </div>
+        <div>
+            <img src="https://drive.google.com/thumbnail?id=1O4UxIF31q6qYKXPOvOgxIYbpJOGs36q4" alt="Cow">
+            <p>Date and Time</p>
+        </div>
+
+    </div>
+    
+</body>
