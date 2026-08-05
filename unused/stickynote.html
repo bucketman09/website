@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=200px, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #note{
+        width: 200px;
+        height: 200px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        overflow: hidden;
+        position: relative;
+        background-image: url(/assets/stickynote.webp);
+
+
+        margin:0;
+    }
+</style>
+<script>
+    function stopStart(){
+        console.log("click!")
+    }
+</script>
+</head>
+<body>
+<div id="note">
+    <img src="/assets/cd-player-stereo.gif" alt="music">
+    <p onclick="stopStart()">Play</p>
+</div>
+</body>
+</html>

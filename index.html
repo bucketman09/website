@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <title>MyLibrary</title>
+    <title>My Desk</title>
     <link rel="stylesheet" href="css/font.css">
     
     <style>
@@ -15,42 +15,33 @@
 
         body{
             background-image: url("assets/desk_background.webp");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: rgba(98, 98, 98); 
             overflow: hidden;
 
-
             display: flex;
-            justify-content: center; /* horizontal center */
             align-items: center;
+            justify-content: center;
 
             min-height: 100vh;
-            margin: 0px;
 
             
         }
 
         #navigation{
-            width: 400px;
-            height: 600px;
-
-            position: relative;
-            left:0px;
-            transition: left 0.5s ease;
-
+            position:absolute;
             background-image: url("assets/notepad_transparent.webp");
+            width: 30vw;
+            height: 75vh;
+            
             background-position: center;
-            background-size: contain; 
+            background-size: cover; 
             background-repeat: no-repeat;
-
-            padding-left: 20px;
-
             display: flex;
             flex-direction: column;
-            position: relative;
+        
+
+            padding: 15px;
+            
+            box-sizing: border-box;
 
         }
 
@@ -59,6 +50,13 @@
             
         }
         */
+        
+        h{
+            width: 100%;
+            height: 15%;
+
+            box-sizing: border-box;
+        }
 
         a{
             line-height: 34px;
@@ -79,7 +77,7 @@
             background-size: contain;
             /*border: 5px solid black;*/
             top: 5%;
-            left: 75%;
+            left: 70%;
             transform: rotate(5deg);
             position: absolute;
             background-image: url(/assets/stickynote.webp);
@@ -88,11 +86,93 @@
 
         }
 
+        #update_scap{ 
+            z-index: 10;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            /*border: 5px solid black;*/
+            top: 5%;
+            left: 5%;
+            width: 350px;
+            height: 65%;
+
+            padding: 20px;
+
+            transform: rotate(-5deg);
+            position: absolute;
+            background-image: url(assets/notepad_transparent.webp);
+            
+            display: flex;
+            flex-direction: column;
+        
+            
+            box-sizing: border-box;
+
+        }
+
+        
+
+        
+
     </style>
 <head>
 
 
-<body>
+<body onload="place_elems()">
+    <div id="update_scap" class="draggable">
+        <h1>Updates</h1>
+    </div>
+
+    <div id="note" class="draggable">
+        <img src="/assets/cd-player-stereo.gif" alt="music">
+        <p onclick="stopStart()">Play</p>
+    </div>
+
+    <div id="navigation" class="draggable">
+        <h1 style="margin-bottom: 0px;">Index</h1>
+
+        <a href="projects/projects.html"/*onclick="moveElement()"*/ id="projects">Projects</a>
+
+        <a href="catalog/catalog.html"> Catalog</a>
+                
+        <a class="subText"; href="">Books</a>
+            
+        <a class="subText"; href="">Film & TV</a>
+                
+        <a class="subText"; href="">Games</a>
+            
+        <a href="photo-album/photo-album.html">Photos</a>
+
+        <a href="/wishlist/wishlist_simple.html">Wishlist</a>
+        
+    </div>
+       
+    <script src = "scripts.js"></script>
+    <script>
+        
+        var id = null;
+        var note = document.getElementById("note");
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function(e) {
+                console.log("click"); 
+                var x = window.getComputedStyle(note).left;
+                var y = window.getComputedStyle(note).top; 
+                localStorage.setItem("x", x);
+                localStorage.setItem("y", y);
+                /*
+                e.preventDefault()
+                console.log("Link clicked:", this.href);
+                var elem = document.getElementById("navigation");
+                elem.style.left = "110%";
+                
+                setTimeout(go=> {window.location.href = link;}, 500)
+                */
+            });
+        });
+        
+    </script>
+
     <audio id="musicPlayer"></audio>
     <script>
     const music = ["assets/music/Geese-3D Country-Crusades.mp3",
@@ -111,63 +191,7 @@
                 musicPlayer.pause()
             }
         }
-    
-    </script>
-    <div id="note">
-        <img src="/assets/cd-player-stereo.gif" alt="music">
-        <p onclick="stopStart()">Play</p>
-    </div>
-    <div id="navigation">
-        <h1 style="margin-top: 50px; margin-bottom: 0px;">Index</h1>
 
-        <a href="projects/projects.html"/*onclick="moveElement()"*/ id="projects">Projects</a>
-
-        <a href="catalog/catalog.html"> Catalog</a>
-                
-        <a class="subText"; href="">Books</a>
-            
-        <a class="subText"; href="">Film & TV</a>
-                
-        <a class="subText"; href="">Games</a>
-            
-        <a href="photo-album/photo-album.html">Photos</a>
-        
-    </div>
-
-
-    
-    <!--script>
-        var id = null;
-        function moveElement() {
-            var elem = document.getElementById("navigation");
-            var pos = 0;
-            clearInterval(id);
-            id = setInterval(frame, 20);
-        function frame() {
-            console.log(elem.style.top);
-                if (pos == 350) {
-                clearInterval(id);
-                } else {
-                pos++;
-                elem.style.top = pos + 'px';
-                elem.style.left = pos + 'px';
-                }
-            }
-        }
-    </script-->
-
-    <script>
-        var id = null;
-        document.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", function(e) {
-                e.preventDefault()
-                console.log("Link clicked:", this.href);
-                var elem = document.getElementById("navigation");
-                elem.style.left = "110%";
-                
-                setTimeout(go=> {window.location.href = link;}, 500)
-            });
-        });
     </script>
     
 </body>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Birthday Wishlist</title>
+    <link rel="stylesheet" href="../css/font.css">
+    <style>
+        *{
+            font-family: myFont;
+        }
+        body{
+            background-image: url("../assets/desk_background.webp");
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 100vh;
+
+        }
+
+        #page{
+            position:absolute;
+            background-image: url("../assets/notepad_transparent.webp");
+            width: 450px;
+            height: 75%;
+            
+            
+            background-position: center;
+            background-size: cover; 
+            background-repeat: no-repeat;
+
+            display: flex;
+            flex-direction: column;
+        
+
+            padding: 15px;
+            
+            box-sizing: border-box;
+        }
+
+        .header{
+            width: 100%;
+            height: 15%;
+
+            box-sizing: border-box;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            flex-grow:1;
+
+            overflow: scroll;
+
+        }
+
+        .slot{
+            position: relative;
+            display: flex;
+            box-sizing: border-box;
+            justify-content: left;
+            align-items: center;
+            height: auto;
+
+            flex-grow:1;
+
+        }
+
+        .img{
+            margin:2%;
+            width: 22%;
+        }
+
+        h{
+            width: 100%;
+            height: 15%;
+
+            box-sizing: border-box; 
+        }
+
+        .pageturnbtn{
+            width:50px;
+            height:50px;
+            background-color: blue;
+        }
+
+        #note{ 
+            z-index: 10;
+            width: 200px;
+            height: 200px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            /*border: 5px solid black;*/
+            top: 5%;
+            left: 75%;
+            transform: rotate(5deg);
+            position: absolute;
+            background-image: url(/assets/stickynote.webp);
+
+            padding: 20px;
+
+        }
+
+    </style>
+<head>
+
+<body onload="place_elems()">
+    <div id="note" class="draggable">
+        <p>These are draggable :)</p>
+    </div>
+    <div id="page" class="draggable">
+        <h1 style="font-size: 1.9em;">Nathans 20th Birthday WishList</h1>
+        <div class="content">
+            <div class="slot" style="background-color: rgba(0, 128, 0, 0.618); border: green 2px dotted;">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fm%2F-clVW5FQfYkAAAAC%2Fmoney-animation.gif&f=1&nofb=1&ipt=fe74f9bb7033d3651318becdb6d8b3a9fe2df22b7622c07e9e2dbbaedcb4dc40" 
+                    alt="Money!" 
+                    class="img">
+                <p>Money!</p>
+            </div>
+            <div class="slot">
+                <img src="https://m.media-amazon.com/images/I/51mu4w1lJwL._AC_SX679_.jpg" 
+                    alt="Casio F91W" 
+                    class="img">
+                <a href="https://www.amazon.com/Casio-F91W-1-Classic-Resin-Digital/dp/B000GAWSDG/ref=sr_1_6?crid=1WFG8KXFJYNZ2&dib=eyJ2IjoiMSJ9.O9ZEwgOPrU_kL3bYaLnsMRpS0FGfwKudYXDR7GyPhYFYdQyl1_sCeOGZSG6Of8TTb5shL1M4g4kJOjfbZlhQRvbYNQPcQeSjJtGBS_GSqWkygqJpzfi5pDdf-mcYh5CmTesqZA2AniaMv2xr-IcnS2gfgq2UIHYSzlWL8NgQ-bnfOX7OwF8myqrmavwvnD-gBznrT_aImv9Fi6UdU5oHoyQ45VeChoVSX3FdMxK7rkzAekRFpdQJXoytS3YTJEqAU5jO4D6MfZYHvB9YoPz77tcf3zdee3mcNleY7e0R39s.mwuLGM6JVqtPAup6Fo9sdpZQh-FfUEHEgf5Hwj8sQGU&dib_tag=se&keywords=casio%2Bwatch&qid=1785813696&sprefix=casio%2Bwat%2Caps%2C318&sr=8-6&th=1">
+                    Casio F91W
+                </a>
+            </div>
+            <div class="slot">
+                <img src="https://i.ebayimg.com/images/g/qS4AAeSwqixpe5sU/s-l960.jpg" 
+                    alt="Nathan For You DVD Box set" 
+                    class="img">
+                <a href="https://www.ebay.com/itm/198064148973?_trkparms=amclksrc%3DITM%26aid%3D777008%26algo%3DPERSONAL.TOPIC%26ao%3D1%26asc%3D20250528152807%26meid%3D4243e35f6a51438d92cbcf7bec0ee936%26pid%3D102796%26rk%3D7%26rkt%3D19%26mehot%3Dpp%26itm%3D198064148973%26pmt%3D1%26noa%3D1%26pg%3D4375194%26algv%3DRecentlyViewedItemsV2DWebWithPSItemDRV2_BP%26tu%3D01KZ5CSTDSX06XHS0HFCDTHP50">
+                    Nathan For You DVD Box Set
+                </a>
+            </div>
+            <h2>Books</h2>
+                <div class="slot">
+                    <img src="https://i.thriftbooks.com/api/imagehandler/m/54C6258C976198033A6B38EED0D11BEC28CE8A79.jpeg" alt="Blood in the Machine" class="img">
+                    <a href="https://www.thriftbooks.com/w/blood-in-the-machine-the-origins-of-the-rebellion-against-big-tech_brian-merchant/33441687/?resultid=33b2094c-ffef-42a2-8322-c77e95066522#edition=61182571&idiq=51678095">
+                            Brian Merchant - Blood in the Machine</a>
+                </div>
+                <div class="slot">
+                    <img src="https://i.thriftbooks.com/api/imagehandler/m/0208840426129F36D008CF4F49D5923A25001B2E.jpeg" alt="Blood in the Machine" class="img">
+                    <a href="https://www.thriftbooks.com/w/empire-of-ai-dreams-and-nightmares-in-sam-altmans-openai_karen-hao/54434134/?resultid=883084f2-a3ec-47c5-a5ce-387062e2d4e9#edition=75068429&idiq=88064484">
+                            Karen Hao - Empire of AI</a>
+                </div>
+                <div class="slot">
+                    <img src="https://i.thriftbooks.com/api/imagehandler/m/73881D824FBEB534288420532426DD6E2B098FD3.jpeg" alt="Blood in the Machine" class="img">
+                    <a href=" https://www.thriftbooks.com/w/fabric-of-civilization-how-textiles-made-the-world_virginia-postrel/26382903/?resultid=881776a0-8271-46aa-97f6-76a6cd90ba46#edition=59286226&idiq=46091537">
+                            Virginia Postrel - The Fabfic and Art of Civilization</a>
+                </div>
+               
+                
+            <h2>CDs</h2>
+            <h3>Ulrika SpaceK</h3>
+            <div class="slot">
+                <img src="https://f4.bcbits.com/img/0041276146_10.jpg" alt="Expo" class="img">
+                <a href="https://ulrikaspacek.bandcamp.com/album/expo">Expo</a>
+            </div>
+            <div class="slot">
+                <img src="https://f4.bcbits.com/img/0031033275_10.jpg" alt="Expo" class="img">
+                <a href="https://ulrikaspacek.bandcamp.com/album/compact-trauma">Compact Truama</a>
+            </div>
+            <h3>Big Thief</h3>
+            <div class="slot">
+                <img src="https://f4.bcbits.com/img/a94682998_1x1_700.avif" alt="Two Hands" class="img">
+                <a href="https://bigthief.bandcamp.com/album/two-hands">Two Hands</a>
+            </div>
+            <div class="slot">
+                <img src="https://f4.bcbits.com/img/0038048967_10.jpg" alt="Capacity" class="img">
+                <a href="https://bigthief.bandcamp.com/album/capacity-1">Capacity</a>
+            </div>
+            <div class="slot">
+                <img src="https://f4.bcbits.com/img/0034116628_10.jpg" alt="Masterpiece" class="img">
+                <a href="https://bigthief.bandcamp.com/album/masterpiece-1">Masterpiece</a>
+            </div>
+            <h3>Bjork</h3>
+            <div class="slot">
+                <img src="https://f4.bcbits.com/img/0020237790_10.jpg" alt="Masterpiece" class="img">
+                <a href="https://bjork.bandcamp.com/album/vespertine">Vespertine</a>
+            </div>
+
+            
+        </div>
+    </div>
+
+    
+    <script src="../scripts.js"> 
+        /*
+        const dragElements = document.querySelectorAll(".draggable"); 
+
+        function onMouseDrag(event, element) {
+            console.log("click!")
+            let leftValue = parseInt(window.getComputedStyle(element).left);
+            let topValue = parseInt(window.getComputedStyle(element).top);
+            element.style.left = `${leftValue + event.movementX}px`;
+            element.style.top = `${topValue + event.movementY}px`;
+        }
+
+        dragElements.forEach((element) => {
+            element.addEventListener("mousedown", (e) => {
+                const onMove = (event) => onMouseDrag(event, element); 
+
+                document.addEventListener("mousemove", onMove);
+                document.addEventListener("mouseup", () => {
+                    document.removeEventListener("mousemove", onMove);
+                }, { once: true });
+            });
+        });
+
+        function place_elems(){
+            var x = console.log(localStorage.getItem("x"))
+            var y = console.log(localStorage.getItem("y"))
+            document.getElementById("note").style.left = x;
+            document.getElementById("note").style.top = y;
+            
+        }
+            */
+    </script>
+
+    <!--div id="pageRight">
+        <h2>Page Right</h2>
+        <div class="content">
+            <div class="slot">
+                <img src="" alt="Cow" class="img">
+                <p>Time and Date</p>
+            </div>
+            <div class="slot">
+                <img src="" alt="Not Cow" class="img">
+                <p>Time and Date</p>
+            </div>
+            <div class="slot">
+                <img src="" alt="Cow" class="img">
+                <p>Time and Date</p>
+            </div>
+        </div>
+    </div-->
+    
+</body>
