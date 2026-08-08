@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("assets/cdplayer.webp");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            overflow: hidden;
+            
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <img id="cd" src="assets/cd_still.webp" alt="spinning cd">
+    <div id="controls">
+        <button onclick="play()">Play</button>   
+        <button onclick="pause()">Pause</button>   
+    </div>
+    
+    <script>
+        var player = new Audio()
+        player.src = "assets/music/Geese-3D Country-Crusades.mp3"
+        player.autoplay = false;
+
+        let cd = document.getElementById("cd");
+        cd.style.scale = ".9";
+
+        function play(){
+            player.play()
+            cd.src = "assets/cd_spin.gif";
+            cd.style.scale = "1.5"
+            console.log("cd spin!")
+        }
+
+        function pause(){
+            console.log("pause")
+            player.pause()
+            cd.src = "assets/cd_still.webp";
+            cd.style.scale = "0.6"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stickers</title>
+    <style>
+        *{
+            font-family: myFont;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-image: url(../assets/librarybackground.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed; 
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            overflow: hidden;
+
+            padding: 5%;
+            
+        }
+
+        #shelves{
+            display: flex;
+            flex-direction: column;
+            overflow: visible;
+
+
+
+            gap: 20px;
+            
+           
+        }
+
+        .shelf{
+            background-image: url("../assets/floating_shelf_open.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            
+            width: 60vw;
+            height: 40vh;
+
+            padding-left: 2%;
+            padding-bottom: 75px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding-top: 5%;
+        }
+
+        .album{
+            width: 150px;
+
+        }
+
+        a{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="shelves">
+        <div class="shelf">
+            <a class="gravity" href="film_tv/film_tv.html">
+                <img class="album" src="../assets/notepad_transparent.webp" alt="">
+            </a>
+            <a class="gravity" href="">
+                <img class="album" src="../assets/notepad_transparent.webp" alt="">
+            </a>
+        </div>
+        <div class="shelf">
+            <a class="draggable" href="Ireland.html">
+                <img class="album" src="../assets/notepad_transparent.webp" alt="">
+            </a>
+            <a class="draggable" href="">
+                <img class="album" src="../assets/notepad_transparent.webp" alt="">
+            </a>
+        </div>
+        
+    </div>
+
+    
+
+    <script src = "../scripts.js"></script>
+</body>
+</html>

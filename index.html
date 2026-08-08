@@ -3,195 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <title>My Desk</title>
-    <link rel="stylesheet" href="css/font.css">
+    <title>Document</title>
     
     <style>
         *{
             font-family: myFont;
+            font-family: cursive;
             box-sizing: border-box;
         }
 
         body{
-            background-image: url("assets/desk_background.webp");
+            background-image: url(assets/librarybackground.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            position:absolute;
+
+            gap: 2%;
+
             overflow: hidden;
 
+            padding: 5% 2% 5%;
+        }
+
+        /*main box -----------------------------------------------*/
+
+        #pages{
+            position: relative;
+            width: 50%;
+            height: 100%;
+
+            background-image: url("assets/rug_19622.webp");
+            background-repeat: repeat;
+            background-position: center;
+
+            background-color: rgba(0, 77, 0, 0.487);
+            border: 5px solid black;
+            overflow: scroll;
+
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content:start;
 
-            min-height: 100vh;
-
-            
+            gap: 2%;
         }
 
-        #navigation{
-            position:absolute;
-            background-image: url("assets/notepad_transparent.webp");
-            width: 30vw;
-            height: 75vh;
-            
-            background-position: center;
-            background-size: cover; 
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-        
-
-            padding: 15px;
-            
-            box-sizing: border-box;
-
+        #pages > h1{
+            background-color: green;
         }
 
-        /*
-        #navigation.transition{
-            
-        }
-        */
-        
-        h{
-            width: 100%;
-            height: 15%;
-
-            box-sizing: border-box;
-        }
-
-        a{
-            line-height: 34px;
-        }
-
-        .subText{
-            margin-left: 30px;
-        }
-
-        
-        
-        #note{ 
-            z-index: 10;
-            width: 200px;
-            height: 200px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            /*border: 5px solid black;*/
-            top: 5%;
-            left: 70%;
-            transform: rotate(5deg);
-            position: absolute;
-            background-image: url(/assets/stickynote.webp);
-
-            padding: 20px;
-
-        }
-
-        #update_scap{ 
-            z-index: 10;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            /*border: 5px solid black;*/
-            top: 5%;
-            left: 5%;
+        #shelf{
+            position: relative;
             width: 350px;
-            height: 65%;
+            height: 450px;
 
-            padding: 20px;
+            background-image: url("assets/bookshelf_closed.webp");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
 
-            transform: rotate(-5deg);
-            position: absolute;
-            background-image: url(assets/notepad_transparent.webp);
+            display: grid;
+            padding-top: 50px;
+            padding-left: 25px;
+            grid-template-columns: repeat(2, 140px);
+            grid-template-rows: 60px 60px 60px 60px 100px;
             
-            display: flex;
-            flex-direction: column;
-        
-            
-            box-sizing: border-box;
 
+            column-gap: 20px;
+            row-gap: 5px;
+
+            align-items: center;
+            
+        }
+
+        #shelf > a{
+            background-color: green;
+        }
+
+        /*doors -----------------------------------------------*/
+
+        #left_door{
+            height: 100%;
+            opacity: 0;
+        }
+
+        #left_door:hover{
+            opacity: 1;
+        }
+
+        #shelf:has(#left_door:hover) {
+            background-image: url("assets/bookshelf_left.webp");
+            
+        }
+
+        #right_door{
+            height: 100%;
+            opacity: 0;
+        }
+
+        #righ_door:hover{
+            opacity: 1;
+        }
+
+        #shelf:has(#right_door:hover) {
+            background-image: url("assets/bookshelf_right.webp");
+        }
+
+        #updates{
+            width: 80%;
+            border: 5px dashed black;
+            padding: 2%;
+
+            color: white;
+            
+        }
+
+        #updates > a{
+            color: white;
         }
 
         
+            
 
+        /*side box -----------------------------------------------*/
+
+        #side{
+            width: 25%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            gap: 2%;
+
+        }
+
+        #card{
+            position: relative;
+            width: 100%;
+            height: 35%;
+
+            background-color: rgb(0, 71, 0);
+            border: 5px solid black;
+
+            padding: 2%;
+        }
+
+        #featured{
+            position: relative;
+            width: 100%;
+            height: 65%;  
+            
+            background-image: url(assets/notepad_transparent.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            padding: 2%;
+            padding-left: 5%;
+
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            gap: 2%;
+        }
+
+        #featured_content{
+            display: flex;
+            flex-direction: column;
+        }
+
+        #banana{
+            transform: scale(.10);
+            transform-origin: top left;
+        }
+
+        /*general*/
+
+        p,a{
+            margin:0px;
+        }
         
+        
+        @media screen and (max-width: 700px) {
+            body{
+                justify-content: space-around;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
 
+            
+            #pages{
+                width: 95%;
+            }
+
+            #side{
+                width: 95%;
+            }
+
+            
+        }
+            
+        
     </style>
-<head>
 
+    
 
-<body onload="place_elems()">
-    <div id="update_scap" class="draggable">
-        <h1>Updates</h1>
-    </div>
-
-    <div id="note" class="draggable">
-        <img src="/assets/cd-player-stereo.gif" alt="music">
-        <p onclick="stopStart()">Play</p>
-    </div>
-
-    <div id="navigation" class="draggable">
-        <h1 style="margin-bottom: 0px;">Index</h1>
-
-        <a href="projects/projects.html"/*onclick="moveElement()"*/ id="projects">Projects</a>
-
-        <a href="catalog/catalog.html"> Catalog</a>
-                
-        <a class="subText"; href="">Books</a>
-            
-        <a class="subText"; href="">Film & TV</a>
-                
-        <a class="subText"; href="">Games</a>
-            
-        <a href="photo-album/photo-album.html">Photos</a>
-
-        <a href="/wishlist/wishlist_simple.html">Wishlist</a>
-        
-    </div>
-       
-    <script src = "scripts.js"></script>
     <script>
-        
-        var id = null;
-        var note = document.getElementById("note");
-        document.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", function(e) {
-                console.log("click"); 
-                var x = window.getComputedStyle(note).left;
-                var y = window.getComputedStyle(note).top; 
-                localStorage.setItem("x", x);
-                localStorage.setItem("y", y);
-                /*
-                e.preventDefault()
-                console.log("Link clicked:", this.href);
-                var elem = document.getElementById("navigation");
-                elem.style.left = "110%";
-                
-                setTimeout(go=> {window.location.href = link;}, 500)
-                */
-            });
-        });
-        
-    </script>
-
-    <audio id="musicPlayer"></audio>
-    <script>
-    const music = ["assets/music/Geese-3D Country-Crusades.mp3",
-                    "assets/music/Miles Davis-Miles Ahead-Springsville.mp3"
-                    ]
-   
-    let random = Math.floor(Math.random() * music.length);
-
-    musicPlayer.src = music[random];
-    musicPlayer.load();
-
-    function stopStart(){
-            if(musicPlayer.paused){
-                musicPlayer.play()
+        let player = null;
+        function togglePopup() {
+            if(player == null || player.closed){
+                player = window.open(
+                    "music_player.html",
+                    "Player",
+                    "width=300,height=350",
+                    "resziable=no"
+                );
             }else{
-                musicPlayer.pause()
+                console.log("close");
+                player.close();
+                player = null;
             }
         }
 
+        
+        function playSFX(id){
+            const sfx_hash = {
+                        "banana": "assets/sfx/Donkey Kong 64 (Oh Banana!) Full HD.mp3", 
+                        "door_open": "assets/sfx/door_open.wav", 
+                        "door_close": "assets/sfx/door_close.wav"
+                        };
+
+            var sfx = new Audio(sfx_hash[id]);
+            sfx.play();
+            
+        }
+
     </script>
+</head>
+
+<body>
+    <div id="pages" class="draggable">
+        <h1>Welcome to Nathan's Library </h1>
+        <div id="shelf">
+            <a href="photos/photos.html">Photo Albums</a>
+            <a href="media_logs/media_logs.html">Media Logs</a>
+            <a href="projects/projects.html">Projects</a>
+            <a href="collections/collections.html">Collections</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href="">6</a>
+            <a href="">7</a>
+            <div id="left_door">
+                 <img id="banana" src="assets/spinning-banana-banana.gif" alt="Oh Banana" onclick="playSFX('banana')">  
+            </div>
+            <div id="right_door">
+
+            </div>
+        </div>
+        <div id="updates">
+            <h2>Updates</h2>
+            
+        </div>
+        
+    </div>
+
+    <div id="side">
+        <div id="card" class="draggable">
+            
+        </div>
+
+        <div id="featured" class="draggable">
+            <h1>Featured</h1>
+            <div id="featured_content">
+                <button id="toggle_player" onclick="togglePopup()">Toggle Music Player</button>
+                <a href="wishlist/wishlist_simple.html">2026 Birthday Wish List</a>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script src = "scripts.js"></script>
     
 </body>
+</html>
